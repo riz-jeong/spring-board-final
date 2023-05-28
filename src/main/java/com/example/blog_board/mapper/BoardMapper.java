@@ -1,9 +1,11 @@
 package com.example.blog_board.mapper;
 
-import com.example.blog_board.domain.Board;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
-import java.util.*;
+
+import com.example.blog_board.domain.Board;
 
 @Repository
 @Mapper
@@ -20,5 +22,7 @@ public interface BoardMapper{
     void update(Board board);
 
     void delete(Long boardId);
+
+    void increaseReadCnt(Long boardId);
 }
 

@@ -4,33 +4,39 @@
 
 <mapper namespace="com.example.blog_board.mapper.BoardMapper">
     <select id="boardCount" resultType="int">
-        SELECT count(boardId) AS cnt FROM tbl_board;
+        SELECT count(boardId) AS cnt FROM tbl_board
     </select>
 
     <select id="findAll" resultType="com.example.blog_board.domain.Board">
         SELECT
         *
-        FROM tbl_board;
+        FROM tbl_board
     </select>
 
     <select id ="findById" parameterType="Long" resultType="com.example.blog_board.domain.Board">
-        SELECT * FROM tbl_board WHERE boardId=#{boardId};
+        SELECT * FROM tbl_board WHERE boardId=#{boardId}
     </select>
 
     <insert id ="save" parameterType="com.example.blog_board.domain.Board" useGeneratedKeys="true" keyProperty="boardId">
-        INSERT INTO tbl_board (title, content, name) VALUES (#{title}, #{content}, #{name});
+        INSERT INTO tbl_board (title, content, name) VALUES (#{title}, #{content}, #{name})
     </insert>
 
     <update id ="update" parameterType="com.example.blog_board.domain.Board">
         UPDATE tbl_board
         SET title = #{title}, content = #{content}, name = #{name}
-        WHERE boardId = #{boardId};
+        WHERE boardId = #{boardId}
+    </update>
+
+    <update id="increaseReadCnt" parameterType="Long">
+        UPDATE tbl_board
+        SET readCnt = (readCnt + 1)
+        WHERE boardId = #{boardId}
     </update>
 
     <delete id ="delete" parameterType="Long">
         DELETE
         FROM tbl_board
-        WHERE boardId = #{boardId};
+        WHERE boardId = #{boardId}
     </delete>
 
 </mapper>

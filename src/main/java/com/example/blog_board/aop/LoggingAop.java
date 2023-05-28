@@ -23,7 +23,7 @@ public class LoggingAop {
         Object result = joinPoint.proceed();
         stopWatch.stop();
 
-        System.out.println("수행 시간 = " + stopWatch.getTotalTimeMillis() + "ms");
+        System.out.println(joinPoint.getTarget().getClass().getSimpleName() + "." + joinPoint.getSignature().getName() +" 수행 시간 = " + stopWatch.getTotalTimeMillis() + "ms");
 
         return result;
     }

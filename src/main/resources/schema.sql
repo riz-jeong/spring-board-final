@@ -14,7 +14,7 @@ create table tbl_board(
     title   varchar(30)       not null,
     content varchar(30)       not null,
     name    varchar(30)       not null,
-    `read`  integer default 0 null,
+    readCnt  integer default 0 null,
     constraint tbl_board_pk
         primary key (boardId)
     );

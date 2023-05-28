@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional //(readOnly = true)
 public class BoardServiceImpl implements BoardService {
     private final BoardMapper boardMapper;
 
@@ -29,6 +29,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Board findById(Long boardId){
+        boardMapper.increaseReadCnt(boardId);
         return boardMapper.findById(boardId);
     }
 

@@ -1,8 +1,12 @@
 package com.example.blog_board.domain;
 
-import lombok.*;
-
 import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Setter
 @Getter
@@ -14,7 +18,7 @@ public class Board {
     private String title;
     private String content;
     private LocalDateTime createDate;
-    private Integer read;
+    private Integer readCnt;
     private String name;
 
     private Long memberId;
