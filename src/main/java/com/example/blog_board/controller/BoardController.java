@@ -32,14 +32,9 @@ public class BoardController {
     public String test(Model model){
         int boardCount = boardService.boardCount();
         List<Board> boardList = boardService.boardList();
-//        int boardCount = 1;
-//        List<String> boardList = List.of(new String[]{"1", "2"});
 
         model.addAttribute("cnt", boardCount);
         model.addAttribute("test", boardList);
-
-        System.out.println("boardCount = " + boardCount);
-        System.out.println("boardList = " + boardList);
 
         return "/board/hello";
     }
@@ -68,7 +63,6 @@ public class BoardController {
         /* TODO board 객체 생성하여 board 추가 */
         Board newBoard = new Board(title, content, name);
         Long boardId = boardService.add(newBoard);
-        System.out.println("boardId = " + boardId);
 
         redirectAttributes.addAttribute("boardId", boardId);
         redirectAttributes.addAttribute("status", true);
